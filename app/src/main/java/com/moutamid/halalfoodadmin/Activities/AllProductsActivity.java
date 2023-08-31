@@ -35,7 +35,7 @@ public class AllProductsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_products);
         content_rcv = findViewById(R.id.content_rcv);
-        content_rcv.setLayoutManager(new GridLayoutManager(this, 2));
+        content_rcv.setLayoutManager(new GridLayoutManager(this, 1));
         herbsAdapter = new AllProductAdapter(this, productModelList);
         content_rcv.setAdapter(herbsAdapter);
         if (Config.isNetworkAvailable(AllProductsActivity.this)) {
@@ -48,16 +48,16 @@ public class AllProductsActivity extends AppCompatActivity {
 
     public void add_details(View view) {
         Intent intent = new Intent(this, AddProductsActivity.class);
-        intent.putExtra("english_name", "");
-        intent.putExtra("benefits", "");
-        intent.putExtra("urduName", "");
-        intent.putExtra("remedies", "");
+        intent.putExtra("item_name", "");
+        intent.putExtra("item_barcode", "");
+        intent.putExtra("item_category", "");
+        intent.putExtra("item_type", "");
         intent.putExtra("key", "");
         startActivity(intent);
     }
 
     private void getProducts() {
-        Config.databaseReference().child("Products").addValueEventListener(new ValueEventListener() {
+        Config.databaseReference().child("Product").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 productModelList.clear();

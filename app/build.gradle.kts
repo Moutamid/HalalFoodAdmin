@@ -42,6 +42,6 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.2.2")
     implementation("com.airbnb.android:lottie:3.4.0")
     implementation("com.android.volley:volley:1.2.1")
-    implementation("com.google.android.gms:play-services-vision:11.0.2")
+    implementation("com.google.android.gms:play-services-vision:20.1.3")
 
 }

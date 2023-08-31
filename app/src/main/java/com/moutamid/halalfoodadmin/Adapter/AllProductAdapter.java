@@ -3,6 +3,7 @@ package com.moutamid.halalfoodadmin.Adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moutamid.halalfoodadmin.Activities.AddProductsActivity;
-import com.moutamid.halalfoodadmin.Activities.BarcodeActivity;
 import com.moutamid.halalfoodadmin.Model.ProductModel;
 import com.moutamid.halalfoodadmin.R;
 import com.moutamid.halalfoodadmin.helper.Config;
@@ -46,27 +46,27 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.Ga
         final String item_barcode = productModels.get(position).getItem_barcode();
         final String item_category = productModels.get(position).getItem_category();
         final String item_type = productModels.get(position).getItem_type();
-        holder.item_barcode.setText(ctx.getString(R.string.item_barcode)+" "+item_barcode);
-        holder.item_category.setText(ctx.getString(R.string.item_category)+" "+item_category);
-        holder.item_type.setText(ctx.getString(R.string.item_type)+" "+item_type);
+        holder.item_barcode.setText(item_barcode);
+        holder.item_category.setText(item_category);
+        holder.item_type.setText(item_type);
         holder.item_name.setText(item_name);
-        holder.itemView.setOnClickListener(view -> {
-            Intent intent = new Intent(ctx, BarcodeActivity.class);
+//        holder.itemView.setOnClickListener(view -> {
+//            Intent intent = new Intent(ctx, AddProductsActivity.class);
 //            intent.putExtra("barcode", item_barcode);
 //            intent.putExtra("category", item_category);
 //            intent.putExtra("type", item_type);
 //            intent.putExtra("name", item_name);
 //            intent.putExtra("key", productModels.get(position).getKey());
-            ctx.startActivity(intent);
-        });
+//            ctx.startActivity(intent);
+//        });
         holder.remove_herb.setOnClickListener(view -> {
             AlertDialog.Builder dialog=new AlertDialog.Builder(ctx);
-            dialog.setTitle("Delete Herb");
-            dialog.setMessage("Are you sure to delete this remedy");
+            dialog.setTitle("Delete Product");
+            dialog.setMessage("Are you sure to delete this product");
             dialog.setPositiveButton("Yes", (dialogInterface, i) -> {
                 dialogInterface.dismiss();
                 Config.showProgressDialog(ctx);
-                Config.databaseReference().child("Products").child(productModels.get(position).getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                Config.databaseReference().child("Product").child(productModels.get(position).getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Config.dismissProgressDialog();

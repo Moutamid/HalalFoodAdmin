@@ -31,7 +31,7 @@
         android:layout_marginTop="60dp">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/products"
+            android:id="@+id/add_products"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="20dp"
@@ -47,17 +47,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/add_products"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="20dp"
             android:layout_weight="1"
             android:background="@drawable/item_bg"
-
             android:gravity="center"
             android:padding="10dp"
-            android:visibility="invisible"
-            android:text="Likes/Dislikes"
+            android:text="Returants"
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold"
