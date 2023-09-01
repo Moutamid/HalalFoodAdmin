@@ -43,5 +43,11 @@ dependencies {
     implementation("com.airbnb.android:lottie:3.4.0")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.google.android.gms:play-services-vision:20.1.3")
+    implementation("com.google.firebase:firebase-storage:20.2.1")
+
+    // Crop
+    implementation("com.karumi:dexter:6.0.2")
+    implementation("com.squareup.picasso:picasso:2.71828")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
 
 }

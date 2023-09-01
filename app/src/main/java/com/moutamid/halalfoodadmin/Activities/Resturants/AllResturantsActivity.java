@@ -1,34 +1,36 @@
-package com.moutamid.halalfoodadmin.Activities;
+package com.moutamid.halalfoodadmin.Activities.Resturants;
 
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
-
-import com.moutamid.halalfoodadmin.Adapter.AllProductAdapter;
-import com.moutamid.halalfoodadmin.Model.ProductModel;
-import com.moutamid.halalfoodadmin.R;
-import com.moutamid.halalfoodadmin.helper.Config;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.moutamid.halalfoodadmin.Adapter.AllProductAdapter;
+import com.moutamid.halalfoodadmin.Adapter.AllResturantsAdapter;
+import com.moutamid.halalfoodadmin.Model.ProductModel;
+import com.moutamid.halalfoodadmin.Model.ResturantModel;
+import com.moutamid.halalfoodadmin.R;
+import com.moutamid.halalfoodadmin.helper.Config;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllProductsActivity extends AppCompatActivity {
+public class AllResturantsActivity extends AppCompatActivity {
 
     RecyclerView content_rcv;
 
-    public List<ProductModel> productModelList = new ArrayList<>();
-    AllProductAdapter herbsAdapter;
+    public List<ResturantModel> productModelList = new ArrayList<>();
+    AllResturantsAdapter herbsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,33 +38,36 @@ public class AllProductsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_products);
         content_rcv = findViewById(R.id.content_rcv);
         content_rcv.setLayoutManager(new GridLayoutManager(this, 1));
-        herbsAdapter = new AllProductAdapter(this, productModelList);
+        herbsAdapter = new AllResturantsAdapter(this, productModelList);
         content_rcv.setAdapter(herbsAdapter);
-        if (Config.isNetworkAvailable(AllProductsActivity.this)) {
+
+
+
+        if (Config.isNetworkAvailable(AllResturantsActivity.this)) {
             getProducts();
         } else {
-            Toast.makeText(AllProductsActivity.this, "No network connection available.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AllResturantsActivity.this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
 
     }
 
     public void add_details(View view) {
-        Intent intent = new Intent(this, AddProductsActivity.class);
-        intent.putExtra("item_name", "");
-        intent.putExtra("item_barcode", "");
-        intent.putExtra("item_category", "");
-        intent.putExtra("item_type", "");
-        intent.putExtra("key", "");
+        Intent intent = new Intent(this, AddResturantsActivity.class);
+//        intent.putExtra("item_name", "");
+//        intent.putExtra("item_barcode", "");
+//        intent.putExtra("item_category", "");
+//        intent.putExtra("item_type", "");
+//        intent.putExtra("key", "");
         startActivity(intent);
     }
 
     private void getProducts() {
-        Config.databaseReference().child("Product").addValueEventListener(new ValueEventListener() {
+        Config.databaseReference().child("Restaurants").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 productModelList.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    ProductModel herbsModel = ds.getValue(ProductModel.class);
+                    ResturantModel herbsModel = ds.getValue(ResturantModel.class);
                     productModelList.add(herbsModel);
                 }
                 herbsAdapter.notifyDataSetChanged();
@@ -79,10 +84,10 @@ public class AllProductsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (Config.isNetworkAvailable(AllProductsActivity.this)) {
+        if (Config.isNetworkAvailable(AllResturantsActivity.this)) {
             getProducts();
         } else {
-            Toast.makeText(AllProductsActivity.this, "No network connection available.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AllResturantsActivity.this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
     }
 }

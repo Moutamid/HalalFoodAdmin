@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F6F5F5"
     tools:context=".Activities.Products.AddProductsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -26,15 +25,12 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="10dp"
         android:background="@drawable/item_bg"
         android:gravity="center"
         android:onClick="add_details"
         android:padding="6dp"
-        android:text="Add Restaurants"
+        android:text="Add Product"
         android:textColor="@color/white"
         android:textSize="16dp" />
 

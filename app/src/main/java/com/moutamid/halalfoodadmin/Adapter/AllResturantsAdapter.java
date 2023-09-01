@@ -12,20 +12,23 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.moutamid.halalfoodadmin.Model.ProductModel;
-import com.moutamid.halalfoodadmin.R;
-import com.moutamid.halalfoodadmin.helper.Config;
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.moutamid.halalfoodadmin.Model.ProductModel;
+import com.moutamid.halalfoodadmin.Model.ResturantModel;
+import com.moutamid.halalfoodadmin.R;
+import com.moutamid.halalfoodadmin.helper.Config;
 
 import java.util.List;
 
-public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.GalleryPhotosViewHolder> {
+public class AllResturantsAdapter extends RecyclerView.Adapter<AllResturantsAdapter.GalleryPhotosViewHolder> {
 
 
     Context ctx;
-    List<ProductModel> productModels;
-    public AllProductAdapter(Context ctx, List<ProductModel> productModels) {
+    List<ResturantModel> productModels;
+
+    public AllResturantsAdapter(Context ctx, List<ResturantModel> productModels) {
         this.ctx = ctx;
         this.productModels = productModels;
     }
@@ -34,36 +37,27 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.Ga
     @Override
     public GalleryPhotosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.products, parent, false);
+        View view = inflater.inflate(R.layout.allresturants, parent, false);
         return new GalleryPhotosViewHolder(view);
     }
+
     @Override
     public void onBindViewHolder(@NonNull GalleryPhotosViewHolder holder, final int position) {
-        final String item_name = productModels.get(position).getItem_name();
-        final String item_barcode = productModels.get(position).getItem_barcode();
-        final String item_category = productModels.get(position).getItem_category();
-        final String item_type = productModels.get(position).getItem_type();
-        holder.item_barcode.setText(item_barcode);
-        holder.item_category.setText(item_category);
-        holder.item_type.setText(item_type);
-        holder.item_name.setText(item_name);
-//        holder.itemView.setOnClickListener(view -> {
-//            Intent intent = new Intent(ctx, AddProductsActivity.class);
-//            intent.putExtra("barcode", item_barcode);
-//            intent.putExtra("category", item_category);
-//            intent.putExtra("type", item_type);
-//            intent.putExtra("name", item_name);
-//            intent.putExtra("key", productModels.get(position).getKey());
-//            ctx.startActivity(intent);
-//        });
+        final String name = productModels.get(position).getName();
+        final String address = productModels.get(position).getAddress();
+        final String image = productModels.get(position).getImage_url();
+
+        holder.resturant_name.setText(name);
+        holder.resturant_discription.setText(address);
+        Glide.with(ctx).load(image).into(holder.image);
         holder.remove_herb.setOnClickListener(view -> {
-            AlertDialog.Builder dialog=new AlertDialog.Builder(ctx);
-            dialog.setTitle("Delete Product");
-            dialog.setMessage("Are you sure to delete this product");
+            AlertDialog.Builder dialog = new AlertDialog.Builder(ctx);
+            dialog.setTitle("Delete Restaurants");
+            dialog.setMessage("Are you sure to delete this restaurant");
             dialog.setPositiveButton("Yes", (dialogInterface, i) -> {
                 dialogInterface.dismiss();
                 Config.showProgressDialog(ctx);
-                Config.databaseReference().child("Product").child(productModels.get(position).getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                Config.databaseReference().child("Restaurants").child(productModels.get(position).getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Config.dismissProgressDialog();
@@ -92,16 +86,15 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.Ga
 
     public class GalleryPhotosViewHolder extends RecyclerView.ViewHolder {
 
-        TextView item_name, item_type, item_category, item_barcode;
-        ImageView remove_herb;
+        TextView resturant_discription, resturant_name;
+        ImageView remove_herb, image;
 
         public GalleryPhotosViewHolder(@NonNull View itemView) {
             super(itemView);
-            item_name = itemView.findViewById(R.id.item_name);
-            item_type = itemView.findViewById(R.id.item_type);
-            item_category = itemView.findViewById(R.id.item_category);
-            item_barcode = itemView.findViewById(R.id.item_barcode);
-            remove_herb=itemView.findViewById(R.id.remove_herb);
+            resturant_discription = itemView.findViewById(R.id.resturant_discription);
+            resturant_name = itemView.findViewById(R.id.resturant_name);
+            remove_herb = itemView.findViewById(R.id.remove_herb);
+            image = itemView.findViewById(R.id.image);
 
         }
     }
