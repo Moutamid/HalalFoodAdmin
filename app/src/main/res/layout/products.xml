@@ -1,144 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:background="@drawable/item_bg"
+    android:padding="5dp"
+    android:backgroundTint="@color/white"
+    android:elevation="4dp"
+    android:layout_margin="12dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:text="Product Info"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
-    <androidx.cardview.widget.CardView
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="34dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:text="sunsilk"
+        android:textColor="#837979"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/item_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:text="sunsilk"
+        android:textColor="#837979"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/item_barcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_category"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:text="sunsilk"
+        android:textColor="#837979"
+        android:textSize="12dp" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/item_barcode"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="User Info"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="sunsilk"
+            android:textColor="#837979"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="sunsilk"
+            android:textColor="#837979"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/cnic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_category"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="sunsilk"
+            android:textColor="#837979"
+            android:textSize="12dp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/item_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="70dp"
         android:layout_weight="1"
-        android:paddingBottom="5dp"
-        app:cardBackgroundColor="#F2F3F2"
-        app:cardCornerRadius="9dp"
-        app:cardElevation="2dp">
+        android:text="Risk Free"
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:textColor="@color/black"
+        android:textSize="10dp" />
 
-            <ImageView
-                android:id="@+id/remove_herb"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_margin="8dp"
-                android:background="@drawable/item_bg"
-                android:backgroundTint="@color/white"
-                android:elevation="2dp"
-                android:padding="5dp"
-                android:src="@drawable/remove"
-                app:tint="@color/black" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_type"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="70dp"
+        android:layout_weight="1"
+        android:text="For Health"
+        android:textColor="#A8A3A3"
+        android:textSize="10dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="Product Name: "
-                        android:textColor="@color/black"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
+    <View
+        android:id="@+id/type"
+        android:layout_width="2dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="58dp"
+        android:background="@drawable/item_bg" />
 
 
-                    <TextView
-                        android:id="@+id/item_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="left"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-                </LinearLayout>
+    <ImageView
+        android:id="@+id/remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/baseline_cancel_24" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="Product Type: "
-                        android:textColor="@color/black"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/item_type"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="left"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="Product Category: "
-                        android:textColor="@color/black"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-
-                    <TextView
-                        android:id="@+id/item_category"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="Product Barcode: "
-                        android:textColor="@color/black"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-
-                    <TextView
-                        android:id="@+id/item_barcode"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="left"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
+    <ImageView
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/remove"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/baseline_edit_location_alt_24" />
 </RelativeLayout>

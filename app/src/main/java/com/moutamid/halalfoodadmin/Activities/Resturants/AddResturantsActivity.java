@@ -1,10 +1,5 @@
 package com.moutamid.halalfoodadmin.Activities.Resturants;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.Manifest;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -12,20 +7,19 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.text.InputType;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnSuccessListener;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -39,11 +33,8 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.moutamid.halalfoodadmin.Model.ResturantModel;
 import com.moutamid.halalfoodadmin.R;
 import com.moutamid.halalfoodadmin.helper.Config;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class AddResturantsActivity extends AppCompatActivity {
 
@@ -255,40 +246,35 @@ public class AddResturantsActivity extends AppCompatActivity {
                         item.setWebsite(edt_website.getText().toString());
                         item.setPhone(edt_phone.getText().toString());
                         item.setShort_description(edt_description.getText().toString());
-                        ResturantModel item1 = new ResturantModel();
-                        item1.setFri_opnening(fri_opnening.getText().toString());
-                        item1.setSat_opnening(sat_opnening.getText().toString());
-                        item1.setSun_opnening(sun_opnening.getText().toString());
-                        item1.setMon_opnening(mon_opnening.getText().toString());
-                        item1.setTue_opnening(tue_opnening.getText().toString());
-                        item1.setWed_opnening(wed_opnening.getText().toString());
-                        item1.setThursday_opnening(thursday_opnening.getText().toString());
-                        item1.setFri_closing(fri_closing.getText().toString());
-                        item1.setSat_closing(sat_closing.getText().toString());
-                        item1.setSun_closing(sun_closing.getText().toString());
-                        item1.setMon_closing(mon_closing.getText().toString());
-                        item1.setTue_closing(tue_closing.getText().toString());
-                        item1.setWed_closing(wed_closing.getText().toString());
-                        item1.setThursday_closing(thursday_closing.getText().toString());
-                        item1.setMon_available(mon_available.getText().toString());
-                        item1.setTue_available(tue_available.getText().toString());
-                        item1.setWed_available(wed_available.getText().toString());
-                        item1.setThursday_available(thursday_available.getText().toString());
-                        item1.setFri_available(fri_available.getText().toString());
-                        item1.setSat_available(sat_available.getText().toString());
-                        item1.setSun_available(sun_available.getText().toString());
+                        item.setFri_opnening(fri_opnening.getText().toString());
+                        item.setSat_opnening(sat_opnening.getText().toString());
+                        item.setSun_opnening(sun_opnening.getText().toString());
+                        item.setMon_opnening(mon_opnening.getText().toString());
+                        item.setTue_opnening(tue_opnening.getText().toString());
+                        item.setWed_opnening(wed_opnening.getText().toString());
+                        item.setThursday_opnening(thursday_opnening.getText().toString());
+                        item.setFri_closing(fri_closing.getText().toString());
+                        item.setSat_closing(sat_closing.getText().toString());
+                        item.setSun_closing(sun_closing.getText().toString());
+                        item.setMon_closing(mon_closing.getText().toString());
+                        item.setTue_closing(tue_closing.getText().toString());
+                        item.setWed_closing(wed_closing.getText().toString());
+                        item.setThursday_closing(thursday_closing.getText().toString());
+                        item.setMon_available(mon_available.getText().toString());
+                        item.setTue_available(tue_available.getText().toString());
+                        item.setWed_available(wed_available.getText().toString());
+                        item.setThursday_available(thursday_available.getText().toString());
+                        item.setFri_available(fri_available.getText().toString());
+                        item.setSat_available(sat_available.getText().toString());
+                        item.setSun_available(sun_available.getText().toString());
                         Config.databaseReference().child("Restaurants").child(key).setValue(item)
                                 .addOnSuccessListener(aVoid -> {
-                                    Config.databaseReference().child("Restaurants").child(key).child("Timings").setValue(item1).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            Config.dismissProgressDialog();
-                                            Toast.makeText(AddResturantsActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
-                                            onBackPressed();
-                                            finish();
-                                        }
-                                    });
+                                    Config.dismissProgressDialog();
+                                    Toast.makeText(AddResturantsActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                                    onBackPressed();
+                                    finish();
 
+                                  
                                 })
                                 .addOnFailureListener(e -> {
                                     Config.dismissProgressDialog();

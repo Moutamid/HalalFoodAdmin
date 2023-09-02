@@ -2,8 +2,33 @@ package com.moutamid.halalfoodadmin.Model;
 
 public class ProductModel {
     String item_name, item_type, item_category, item_barcode, key;
+    String name, age, cnic;
 
     public ProductModel() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getCnic() {
+        return cnic;
+    }
+
+    public void setCnic(String gender) {
+        this.cnic = gender;
     }
 
     public String getItem_name() {

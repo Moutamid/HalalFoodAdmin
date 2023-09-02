@@ -28,19 +28,59 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/add_products"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="20dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/item_bg"
 
             android:gravity="center"
             android:padding="10dp"
-            android:text="Products"
+            android:text="Add Products"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_restuarant"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/item_bg"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Add Restaurants"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/like_dislike"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/item_bg"
+
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Like &amp; Dislike Products "
+            android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold"
@@ -48,17 +88,19 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/add_restuarant"
+            android:id="@+id/user_products"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="20dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/item_bg"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Returants"
+            android:text="New Products from Users "
+            android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18dp"
+
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

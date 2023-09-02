@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@color/purple_200">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_arrow_back_ios_new_24"
+                app:tint="@color/white"
+                android:onClick="backpress"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:paddingLeft="6dp"
+                android:textSize="18dp"
+                android:text="Update Product"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"/>
+        </androidx.appcompat.widget.Toolbar>
+
+        <EditText
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/edit_bg"
+            android:hint="Product Name "
+            android:imeOptions="actionGo"
+            android:maxLines="1"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/item_barcode"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/edit_bg"
+            android:gravity="center_vertical"
+            android:hint="Product Barcode"
+            android:imeOptions="actionDone"
+            android:nextFocusForward="@+id/persian_name"
+            android:padding="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:padding="10dp"
+            android:text="Product Type"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/item_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+android:id="@+id/risky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Risky" />
+
+
+
+            <RadioButton
+                android:id="@+id/limited_risky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Limited Risk" />
+            <RadioButton
+                android:id="@+id/riskfree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+
+                android:text="Risk Free" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:padding="10dp"
+            android:text="Product Category"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/item_category"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/haram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Haram" />
+
+            <RadioButton
+                android:id="@+id/halal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Halal" />
+
+
+            <RadioButton
+                android:id="@+id/doubtful"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Doubtful" />
+        </RadioGroup>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/add_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/item_bg"
+        android:gravity="center"
+        android:onClick="add_details"
+        android:padding="6dp"
+        android:text="Add Product"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+
+</RelativeLayout>

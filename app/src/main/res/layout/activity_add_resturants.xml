@@ -143,6 +143,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:text="Availability"
+                        android:visibility="gone"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -183,8 +184,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:checked="true"
-
-                        android:text="Available" />
+android:visibility="gone"                        android:text="Available" />
 
                     <TextView
                         android:id="@+id/mon_opnening"
@@ -219,6 +219,8 @@
                         android:textStyle="bold" />
 
                     <CheckBox
+                        android:visibility="gone"
+
                         android:id="@+id/tue_available"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -259,6 +261,8 @@
                         android:textStyle="bold" />
 
                     <CheckBox
+                        android:visibility="gone"
+
                         android:id="@+id/wed_available"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -299,6 +303,7 @@
                         android:textStyle="bold" />
 
                     <CheckBox
+                        android:visibility="gone"
                         android:id="@+id/thursday_available"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -339,6 +344,8 @@
                         android:textStyle="bold" />
 
                     <CheckBox
+                        android:visibility="gone"
+
                         android:id="@+id/fri_available"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -379,6 +386,8 @@
                         android:textStyle="bold" />
 
                     <CheckBox
+                        android:visibility="gone"
+
                         android:id="@+id/sat_available"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -419,6 +428,8 @@
                         android:textStyle="bold" />
 
                     <CheckBox
+                        android:visibility="gone"
+
                         android:id="@+id/sun_available"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
