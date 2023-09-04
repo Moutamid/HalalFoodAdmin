@@ -42,7 +42,7 @@ public class AddResturantsActivity extends AppCompatActivity {
     private Uri uri = null;
     ImageView image;
     TextView upload;
-    EditText edt_name, edt_description, edt_phone, edt_website, edt_address;
+    EditText edt_name, edt_description, edt_phone, edt_website, edt_address, edt_lat, edt_lng;
 
     TextView mon_opnening, tue_opnening, wed_opnening, thursday_opnening, fri_opnening, sat_opnening, sun_opnening;
     TextView mon_closing, tue_closing, wed_closing, thursday_closing, fri_closing, sat_closing, sun_closing;
@@ -52,7 +52,6 @@ public class AddResturantsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_resturants);
-
         edt_name = findViewById(R.id.edt_name);
         edt_description = findViewById(R.id.edt_description);
         edt_phone = findViewById(R.id.edt_phone);
@@ -81,6 +80,8 @@ public class AddResturantsActivity extends AppCompatActivity {
         fri_available = findViewById(R.id.fri_available);
         sat_available = findViewById(R.id.sat_available);
         sun_available = findViewById(R.id.sun_available);
+        edt_lat = findViewById(R.id.edt_lat);
+        edt_lng = findViewById(R.id.edt_lng);
         upload = findViewById(R.id.upload);
         available(mon_available);
         available(tue_available);
@@ -267,14 +268,25 @@ public class AddResturantsActivity extends AppCompatActivity {
                         item.setFri_available(fri_available.getText().toString());
                         item.setSat_available(sat_available.getText().toString());
                         item.setSun_available(sun_available.getText().toString());
+                        item.setLat(Double.parseDouble(edt_lat.getText().toString()));
+                        item.setLng(Double.parseDouble(edt_lng.getText().toString()));
+                        ResturantModel item1 = new ResturantModel();
+                        item1.setLat(Double.parseDouble(edt_lat.getText().toString()));
+                        item1.setLng(Double.parseDouble(edt_lng.getText().toString()));
+                        item1.setName((edt_name.getText().toString()));
+
                         Config.databaseReference().child("Restaurants").child(key).setValue(item)
                                 .addOnSuccessListener(aVoid -> {
-                                    Config.dismissProgressDialog();
-                                    Toast.makeText(AddResturantsActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
-                                    onBackPressed();
-                                    finish();
+                                    Config.databaseReference().child("Locations").child(key).setValue(item1)
+                                            .addOnSuccessListener(aVoid1 -> {
+                                                Config.dismissProgressDialog();
+                                                Toast.makeText(AddResturantsActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                                                onBackPressed();
+                                                finish();
 
-                                  
+                                            });
+
+
                                 })
                                 .addOnFailureListener(e -> {
                                     Config.dismissProgressDialog();

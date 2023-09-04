@@ -1,13 +1,27 @@
 package com.moutamid.halalfoodadmin.Model;
 
-import android.widget.CheckBox;
-import android.widget.TextView;
-
 public class ResturantModel {
-    String image_url, name, short_description , phone, website, address, key;
+    String image_url, name, short_description, phone, website, address, key;
     String mon_opnening, tue_opnening, wed_opnening, thursday_opnening, fri_opnening, sat_opnening, sun_opnening;
     String mon_closing, tue_closing, wed_closing, thursday_closing, fri_closing, sat_closing, sun_closing;
     String mon_available, tue_available, wed_available, thursday_available, fri_available, sat_available, sun_available;
+    double lat, lng;
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
 
     public String getMon_opnening() {
         return mon_opnening;
