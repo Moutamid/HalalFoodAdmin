@@ -14,8 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-import com.moutamid.halalfoodadmin.Activities.Products.AllProductsActivity;
-import com.moutamid.halalfoodadmin.Adapter.AllProductAdapter;
+import com.moutamid.halalfoodadmin.Adapter.Like_Dislike_ProductAdapter;
 import com.moutamid.halalfoodadmin.Model.ProductModel;
 import com.moutamid.halalfoodadmin.R;
 import com.moutamid.halalfoodadmin.helper.Config;
@@ -29,7 +28,7 @@ public class DislikeFragment extends Fragment {
     RecyclerView content_rcv;
 
     public List<ProductModel> productModelList = new ArrayList<>();
-    AllProductAdapter herbsAdapter;
+    Like_Dislike_ProductAdapter model;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,8 +38,8 @@ public class DislikeFragment extends Fragment {
 
         content_rcv = view.findViewById(R.id.content_rcv);
         content_rcv.setLayoutManager(new GridLayoutManager(getContext(), 1));
-        herbsAdapter = new AllProductAdapter(getContext(), productModelList);
-        content_rcv.setAdapter(herbsAdapter);
+        model = new Like_Dislike_ProductAdapter(getContext(), productModelList, "Dislike");
+        content_rcv.setAdapter(model);
         if (Config.isNetworkAvailable(getContext())) {
             getProducts();
         } else {
@@ -58,7 +57,7 @@ public class DislikeFragment extends Fragment {
                     ProductModel herbsModel = ds.getValue(ProductModel.class);
                     productModelList.add(herbsModel);
                 }
-                herbsAdapter.notifyDataSetChanged();
+                model.notifyDataSetChanged();
 
             }
 
@@ -69,4 +68,9 @@ public class DislikeFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getProducts();
+    }
 }

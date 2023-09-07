@@ -34,7 +34,7 @@
         android:gravity="center"
         android:onClick="add_details"
         android:padding="6dp"
-        android:text="Add Restaurants"
+        android:text="Add Products"
         android:textColor="@color/white"
         android:textSize="16dp" />
 

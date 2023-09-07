@@ -29,7 +29,7 @@ public class UserProductActivity extends AppCompatActivity {
     RecyclerView content_rcv;
 
     public List<ProductModel> productModelList = new ArrayList<>();
-    UserProductAdapter herbsAdapter;
+    UserProductAdapter model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,8 @@ public class UserProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_product);
         content_rcv = findViewById(R.id.content_rcv);
         content_rcv.setLayoutManager(new GridLayoutManager(this, 1));
-        herbsAdapter = new UserProductAdapter(this, productModelList);
-        content_rcv.setAdapter(herbsAdapter);
+        model = new UserProductAdapter(this, productModelList);
+        content_rcv.setAdapter(model);
         if (Config.isNetworkAvailable(UserProductActivity.this)) {
             getProducts();
         } else {
@@ -57,7 +57,7 @@ public class UserProductActivity extends AppCompatActivity {
                     ProductModel herbsModel = ds.getValue(ProductModel.class);
                     productModelList.add(herbsModel);
                 }
-                herbsAdapter.notifyDataSetChanged();
+                model.notifyDataSetChanged();
 
             }
 

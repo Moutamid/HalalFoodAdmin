@@ -1,6 +1,7 @@
 package com.moutamid.halalfoodadmin.Activities.Products;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -8,8 +9,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.moutamid.halalfoodadmin.Model.ProductModel;
 import com.moutamid.halalfoodadmin.R;
 import com.moutamid.halalfoodadmin.helper.Config;
@@ -22,7 +26,7 @@ public class EditProductsActivity extends AppCompatActivity {
     String item_category_str = "Halal", item_types_str = "Risk Free", item_name_str, item_barcode_str;
     TextView add_btn, item_barcode;
     RadioButton halal, haram, doubtful, risky, limited_risky, riskfree;
-    String key;
+    String key, type = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,9 @@ public class EditProductsActivity extends AppCompatActivity {
         String itemCategory = getIntent().getStringExtra("item_category");
         String itemType = getIntent().getStringExtra("item_type");
         key = getIntent().getStringExtra("item_key");
+        if (getIntent().getStringExtra("type") != null) {
+            type = getIntent().getStringExtra("type");
+        }
         item_name.setText(itemName);
         item_barcode.setText(itemBarcode);
         if (itemCategory.equals("Halal")) {
@@ -68,16 +75,36 @@ public class EditProductsActivity extends AppCompatActivity {
                     productModel.setKey(key);
                     Config.databaseReference().child("Product").child(key).setValue(productModel).addOnSuccessListener(aVoid -> {
                         Config.dismissProgressDialog();
-                        Toast.makeText(EditProductsActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
-                        onBackPressed();
-                        finish();
+
+                        Config.databaseReference().child("UserProduct").child(key).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(EditProductsActivity.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(e -> {
+                            Config.dismissProgressDialog();
+                            Toast.makeText(EditProductsActivity.this, "Something went wrong.", Toast.LENGTH_SHORT).show();
+                        });
                     }).addOnFailureListener(e -> {
                         Config.dismissProgressDialog();
                         Toast.makeText(EditProductsActivity.this, "Please try again", Toast.LENGTH_SHORT).show();
                     });
                 }
-            }
+
+                Log.d("data", type+"  "+ key);
+                Config.databaseReference().child("Feedback").child(type).child(key).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(EditProductsActivity.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                }).addOnFailureListener(e -> {
+                    Config.dismissProgressDialog();
+                    Toast.makeText(EditProductsActivity.this, "Something went wrong.", Toast.LENGTH_SHORT).show();
+                });}
+
         });
+
     }
 
     private void initViews() {
@@ -115,6 +142,7 @@ public class EditProductsActivity extends AppCompatActivity {
             item_name.setError("Enter here");
         } else {
             item_name_str = item_name.getText().toString();
+            item_barcode_str = item_barcode.getText().toString();
             return true;
 
 

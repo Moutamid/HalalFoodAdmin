@@ -30,7 +30,7 @@ public class AllResturantsActivity extends AppCompatActivity {
     RecyclerView content_rcv;
 
     public List<ResturantModel> productModelList = new ArrayList<>();
-    AllResturantsAdapter herbsAdapter;
+    AllResturantsAdapter model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,8 @@ public class AllResturantsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_products);
         content_rcv = findViewById(R.id.content_rcv);
         content_rcv.setLayoutManager(new GridLayoutManager(this, 1));
-        herbsAdapter = new AllResturantsAdapter(this, productModelList);
-        content_rcv.setAdapter(herbsAdapter);
+        model = new AllResturantsAdapter(this, productModelList);
+        content_rcv.setAdapter(model);
 
 
 
@@ -70,7 +70,7 @@ public class AllResturantsActivity extends AppCompatActivity {
                     ResturantModel herbsModel = ds.getValue(ResturantModel.class);
                     productModelList.add(herbsModel);
                 }
-                herbsAdapter.notifyDataSetChanged();
+                model.notifyDataSetChanged();
 
             }
 

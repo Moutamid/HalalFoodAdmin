@@ -79,10 +79,6 @@ public class UserProductAdapter extends RecyclerView.Adapter<UserProductAdapter.
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Config.dismissProgressDialog();
-//                        if (task.isSuccessful()){
-//                            productModels.remove(position);
-//                            notifyDataSetChanged();
-//                        }
                     }
                 }).addOnFailureListener(e -> {
                     Config.dismissProgressDialog();

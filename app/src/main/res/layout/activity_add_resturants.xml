@@ -107,14 +107,13 @@
                 android:inputType="textPostalAddress"
                 android:padding="10dp" />
   <EditText
-                android:id="@+id/edt_lat"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/edit_bg"
-                android:hint="Enter Latitude"
-                android:inputType="numberDecimal"
-                android:padding="10dp" />
+      android:id="@+id/edt_lat"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_margin="20dp"
+      android:background="@drawable/edit_bg"
+      android:hint="Enter Latitude"
+      android:padding="10dp" />
 
             <EditText
                 android:id="@+id/edt_lng"
@@ -123,7 +122,6 @@
                 android:layout_margin="20dp"
                 android:background="@drawable/edit_bg"
                 android:hint="Enter Longitude"
-                android:inputType="numberDecimal"
                 android:padding="10dp" />
 
 
