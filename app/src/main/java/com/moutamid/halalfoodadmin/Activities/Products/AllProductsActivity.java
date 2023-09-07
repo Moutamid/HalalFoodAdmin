@@ -39,6 +39,7 @@ public class AllProductsActivity extends AppCompatActivity {
         model = new AllProductAdapter(this, productModelList);
         content_rcv.setAdapter(model);
         if (Config.isNetworkAvailable(AllProductsActivity.this)) {
+            Config.showProgressDialog(AllProductsActivity.this);
             getProducts();
         } else {
             Toast.makeText(AllProductsActivity.this, "No network connection available.", Toast.LENGTH_SHORT).show();
@@ -66,12 +67,14 @@ public class AllProductsActivity extends AppCompatActivity {
                     productModelList.add(herbsModel);
                 }
                 model.notifyDataSetChanged();
+                Config.dismissProgressDialog();
+
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Config.dismissProgressDialog();
+                Config.dismissProgressDialog();
             }
         });
     }

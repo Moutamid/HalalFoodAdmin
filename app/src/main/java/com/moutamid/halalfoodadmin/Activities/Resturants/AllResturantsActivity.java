@@ -35,7 +35,7 @@ public class AllResturantsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_products);
+        setContentView(R.layout.activity_all_resturants);
         content_rcv = findViewById(R.id.content_rcv);
         content_rcv.setLayoutManager(new GridLayoutManager(this, 1));
         model = new AllResturantsAdapter(this, productModelList);
@@ -89,5 +89,9 @@ public class AllResturantsActivity extends AppCompatActivity {
         } else {
             Toast.makeText(AllResturantsActivity.this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void backpress(View view) {
+        onBackPressed();
     }
 }

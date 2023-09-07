@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".Activities.Resturants.AddResturantsActivity">
 
@@ -15,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -25,21 +27,21 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="backpress"
                     android:src="@drawable/baseline_arrow_back_ios_new_24"
-                    app:tint="@color/white"
-                    android:onClick="backpress"/>
+                    app:tint="@color/white" />
 
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:paddingLeft="6dp"
-                    android:textSize="18dp"
-                    android:text="Add Restaurants"
                     android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginLeft="8dp"
+                    android:paddingLeft="6dp"
+                    android:text="Add Restaurants"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
             </androidx.appcompat.widget.Toolbar>
 
             <ImageView
@@ -57,9 +59,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
+
                 android:background="@drawable/edit_bg"
                 android:hint="Enter name"
-                android:padding="10dp" />
+                android:padding="10dp"
+
+                android:textColorHint="@color/grey" />
 
 
             <EditText
@@ -72,7 +77,9 @@
                 android:background="@drawable/edit_bg"
                 android:gravity="start"
                 android:hint="Description"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
 
             <EditText
                 android:id="@+id/edt_phone"
@@ -83,7 +90,9 @@
                 android:background="@drawable/edit_bg"
                 android:hint="Enter Phone Number"
                 android:inputType="number"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
 
             <EditText
                 android:id="@+id/edt_website"
@@ -95,7 +104,9 @@
                 android:background="@drawable/edit_bg"
                 android:hint="Enter Website URL"
                 android:inputType="textWebEmailAddress"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
 
             <EditText
                 android:id="@+id/edt_address"
@@ -105,15 +116,19 @@
                 android:background="@drawable/edit_bg"
                 android:hint="Enter Address"
                 android:inputType="textPostalAddress"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
+
+            <EditText
+                android:id="@+id/edt_lat"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+
+                android:layout_margin="20dp"
+                android:background="@drawable/edit_bg"
+                android:hint="Enter Latitude"
                 android:padding="10dp" />
-  <EditText
-      android:id="@+id/edt_lat"
-      android:layout_width="match_parent"
-      android:layout_height="50dp"
-      android:layout_margin="20dp"
-      android:background="@drawable/edit_bg"
-      android:hint="Enter Latitude"
-      android:padding="10dp" />
 
             <EditText
                 android:id="@+id/edt_lng"
@@ -122,7 +137,9 @@
                 android:layout_margin="20dp"
                 android:background="@drawable/edit_bg"
                 android:hint="Enter Longitude"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
 
 
             <TextView
@@ -160,9 +177,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:text="Availability"
-                        android:visibility="gone"
                         android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -201,7 +218,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:checked="true"
-android:visibility="gone"                        android:text="Available" />
+                        android:text="Available"
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/mon_opnening"
@@ -209,8 +228,8 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-
-                        android:text="12:00 am" />
+                        android:text="12:00 am"
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/mon_closing"
@@ -218,8 +237,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -236,14 +256,15 @@ android:visibility="gone"                        android:text="Available" />
                         android:textStyle="bold" />
 
                     <CheckBox
-                        android:visibility="gone"
-
                         android:id="@+id/tue_available"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:checked="true"
-                        android:text="Available" />
+                        android:text="Available"
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/tue_opnening"
@@ -251,8 +272,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/tue_closing"
@@ -260,8 +282,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -278,14 +301,15 @@ android:visibility="gone"                        android:text="Available" />
                         android:textStyle="bold" />
 
                     <CheckBox
-                        android:visibility="gone"
-
                         android:id="@+id/wed_available"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:checked="true"
-                        android:text="Available" />
+                        android:text="Available"
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/wed_opnening"
@@ -293,8 +317,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/wed_closing"
@@ -302,8 +327,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -320,13 +346,14 @@ android:visibility="gone"                        android:text="Available" />
                         android:textStyle="bold" />
 
                     <CheckBox
-                        android:visibility="gone"
                         android:id="@+id/thursday_available"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:checked="true"
-                        android:text="Available" />
+                        android:text="Available"
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/thursday_opnening"
@@ -334,8 +361,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/thur_closing"
@@ -343,8 +371,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -361,14 +390,15 @@ android:visibility="gone"                        android:text="Available" />
                         android:textStyle="bold" />
 
                     <CheckBox
-                        android:visibility="gone"
-
                         android:id="@+id/fri_available"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:checked="true"
-                        android:text="Available" />
+                        android:text="Available"
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/fri_opnening"
@@ -376,8 +406,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/fru_closing"
@@ -385,8 +416,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -403,14 +435,15 @@ android:visibility="gone"                        android:text="Available" />
                         android:textStyle="bold" />
 
                     <CheckBox
-                        android:visibility="gone"
-
                         android:id="@+id/sat_available"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:checked="true"
-                        android:text="Available" />
+                        android:text="Available"
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/sat_opnening"
@@ -418,8 +451,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/sat_closing"
@@ -427,8 +461,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -445,14 +480,15 @@ android:visibility="gone"                        android:text="Available" />
                         android:textStyle="bold" />
 
                     <CheckBox
-                        android:visibility="gone"
-
                         android:id="@+id/sun_available"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:checked="true"
-                        android:text="Available" />
+                        android:text="Available"
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/sun_opnening"
@@ -460,8 +496,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/sun_closing"
@@ -469,8 +506,9 @@ android:visibility="gone"                        android:text="Available" />
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="12:00 am"
 
-                        android:text="12:00 am" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
             </LinearLayout>

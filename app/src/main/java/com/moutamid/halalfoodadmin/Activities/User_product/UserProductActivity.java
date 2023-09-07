@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-import com.moutamid.halalfoodadmin.Activities.Products.AddProductsActivity;
 import com.moutamid.halalfoodadmin.Adapter.AllProductAdapter;
 import com.moutamid.halalfoodadmin.Adapter.UserProductAdapter;
 import com.moutamid.halalfoodadmin.Model.ProductModel;

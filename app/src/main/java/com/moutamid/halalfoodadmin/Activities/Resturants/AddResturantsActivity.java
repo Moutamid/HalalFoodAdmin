@@ -1,12 +1,10 @@
 package com.moutamid.halalfoodadmin.Activities.Resturants;
 
-import android.Manifest;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -24,12 +22,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
 import com.moutamid.halalfoodadmin.Model.ResturantModel;
 import com.moutamid.halalfoodadmin.R;
 import com.moutamid.halalfoodadmin.helper.Config;
@@ -191,13 +183,25 @@ public class AddResturantsActivity extends AppCompatActivity {
                         if (edt_website.getText().toString().isEmpty()) {
                             edt_website.setError("Please Enter");
                         } else {
+
                             if (edt_address.getText().toString().isEmpty()) {
                                 edt_address.setError("Please Enter");
                             } else {
-                                if (Config.isNetworkAvailable(AddResturantsActivity.this)) {
-                                    uploadvideo();
+                                if (edt_lat.getText().toString().isEmpty()) {
+                                    edt_lat.setError("Please Enter");
                                 } else {
-                                    Toast.makeText(AddResturantsActivity.this, "No network connection available", Toast.LENGTH_SHORT).show();
+                                    if (edt_lng.getText().toString().isEmpty()) {
+                                        edt_lng.setError("Please Enter");
+                                    } else {
+
+
+                                            if (Config.isNetworkAvailable(AddResturantsActivity.this)) {
+                                                uploadvideo();
+                                            } else {
+                                                Toast.makeText(AddResturantsActivity.this, "No network connection available", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
                                 }
                             }
                         }
@@ -306,25 +310,10 @@ public class AddResturantsActivity extends AppCompatActivity {
     }
 
     public void image_Select() {
-        Dexter.withActivity(AddResturantsActivity.this)
-                .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
-                .withListener(new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted(PermissionGrantedResponse response) {
-                        Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        startActivityForResult(pickPhoto, PICK_IMAGE_GALLERY);
-                    }
-
-                    @Override
-                    public void onPermissionDenied(PermissionDeniedResponse response) {
-
-                    }
-
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-                        token.continuePermissionRequest();
-                    }
-                }).check();
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_GALLERY);
 
 
     }
