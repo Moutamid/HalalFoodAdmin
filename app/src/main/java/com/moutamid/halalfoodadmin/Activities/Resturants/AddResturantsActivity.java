@@ -171,6 +171,7 @@ public class AddResturantsActivity extends AppCompatActivity {
         image.setOnClickListener(v -> image_Select());
 
         upload.setOnClickListener(v -> {
+
             if (edt_name.getText().toString().isEmpty()) {
                 edt_name.setError("Please Enter");
             } else {

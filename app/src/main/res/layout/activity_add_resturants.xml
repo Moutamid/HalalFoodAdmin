@@ -125,9 +125,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
 
-                android:layout_margin="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/edit_bg"
                 android:hint="Enter Latitude"
+                android:inputType="phone"
+
                 android:padding="10dp" />
 
             <EditText
@@ -138,6 +141,7 @@
                 android:background="@drawable/edit_bg"
                 android:hint="Enter Longitude"
                 android:padding="10dp"
+                android:inputType="phone"
                 android:textColor="@color/black"
                 android:textColorHint="@color/grey" />
 
